@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'idea'
+}
+
+group 'co.com.sofka'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '3.2.1'
+}
+
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+
+    implementation 'com.sikulix:sikulixapi:2.0.5'
+
+    // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+    implementation 'io.github.bonigarcia:webdrivermanager:5.1.1'
+
+    implementation 'io.cucumber:cucumber-junit:7.3.2'
+    implementation 'io.cucumber:cucumber-java:7.3.2'
+
+    implementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: serenityVersion
+
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+gradle.startParameter.continueOnFailure = true
